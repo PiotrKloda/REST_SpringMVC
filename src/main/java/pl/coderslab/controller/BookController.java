@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import pl.coderslab.beans.MemoryBookService;
 import pl.coderslab.entities.Book;
+import pl.coderslab.interfaces.IBookService;
 
 @RestController
 @RequestMapping("/books")
@@ -29,38 +30,40 @@ public class BookController {
 		return new Book(123432, "tytuuul", "ałtor", "publiszer", "typyta", 12342354);
 	}
 	
-	@Autowired
-	MemoryBookService mbs;
+//	@Autowired
+//	MemoryBookService mbs;
+	@Autowired 
+	IBookService bookService;
 	
 	//get All Books
 	@RequestMapping("") 
 	public List<Book> showBooks() {
-		return mbs.getList();
+		return bookService.getList();
 	}
 	
 	@RequestMapping("/get/{id}")
 	@ResponseBody
 	public Book getBook(@PathVariable("id") long id) {
-		return mbs.getBook(id);
+		return bookService.getBook(id);
 	}
 	
 
 	@PostMapping("")
     public void add(@RequestBody Book book) {
 		System.out.println("POST request is in controller");
-		mbs.addNewBook(book);
+		bookService.addNewBook(book);
     }
 	
 	
 	@PutMapping("/{id}")
 	public void editBook(@RequestBody Book book, @PathVariable("id") long id ) {
 		System.out.println("PUT request is in controller");
-		mbs.editBook(book, id);
+		bookService.editBook(book, id);
 	}
 	
 	@DeleteMapping("/{id}")
 	public void remove( @PathVariable("id") long id ) {
-		mbs.deleteBook(id);
+		bookService.deleteBook(id);
 	}
 	
 }

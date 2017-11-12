@@ -6,9 +6,10 @@ import java.util.List;
 import org.springframework.stereotype.Component;
 
 import pl.coderslab.entities.Book;
+import pl.coderslab.interfaces.IBookService;
 
 @Component
-public class MemoryBookService {
+public class MemoryBookService implements IBookService{
 
 	private List<Book> list;
 
