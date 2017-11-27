@@ -3,7 +3,7 @@ var GETBooks = function() {
         url: "http://localhost:8080/Spring_MVC_REST/books",
         data: {},
         type: "GET",
-        dataType: "json"
+        dataType: "json" 
     }).done(function(books) {
         var booksFromJSON = books;
         var bookListQuery = document.querySelector("#books_list");
