@@ -1,4 +1,3 @@
-//GETBooks
 var GETBooks = function() {
     $.ajax({
         url: "http://localhost:8080/Spring_MVC_REST/books",
@@ -6,12 +5,8 @@ var GETBooks = function() {
         type: "GET",
         dataType: "json"
     }).done(function(books) {
-        //2. przerob na JS
-        // var booksFromJsonString= books;
-        // var booksParsed = JSON.parse(booksFromJsonString); ODRAZU SA zparsowane !
-        var booksFromJSON = books; //import z Json
-        //dynamiczne tworzenie listy ksiazek
-        var bookListQuery = document.querySelector("#books_list"); // dostaje tablice obiektow !!!
+        var booksFromJSON = books;
+        var bookListQuery = document.querySelector("#books_list");
         var counter = 1;
         booksFromJSON.forEach(function(eachBook) {
             var newBookP = document.createElement("p");
@@ -42,8 +37,6 @@ var GETBooks = function() {
 }
 GETBooks();
 
-
-// EXPANDING IN JQUERY
 var expandButtons = $(".expBtn");
 var grandParent = $("#books_list");
 grandParent.on("click", ".expBtn", function(event) {
@@ -54,32 +47,25 @@ grandParent.on("click", ".expBtn", function(event) {
     }
 });
 
-
-//DELETE books
 var grandParent = $("#books_list");
 grandParent.on("click", ".delBtn", function(event) {
-    // console.log(event.target.getAttribute("data-BookId"));
     var idToDel = event.target.getAttribute("data-BookId");
     $.ajax({
         url: "http://localhost:8080/Spring_MVC_REST/books/" + idToDel,
         type: "DELETE",
     }).done(function() {
         console.log("success DELETE");
-        window.location.reload(false); //odswieza strone !
+        window.location.reload(false); 
     }).fail(function() {
         console.log("fail DELETE");
     });
 });
 
-//EDIT books
 var grandParent = $("#books_list");
 grandParent.on("click", ".editSubmitBtn", function(event) {
     event.preventDefault();
-    // console.log(event.target.getAttribute("data-BookId"));
-    // console.log( event.target.parentElement.querySelector("#title").value );
 
     var updatedBook = {
-        //id: event.target.getAttribute("data-BookId"),
         title: event.target.parentElement.querySelector("#title").value,
         author: event.target.parentElement.querySelector("#author").value,
         type: event.target.parentElement.querySelector("#type").value,
@@ -98,30 +84,22 @@ grandParent.on("click", ".editSubmitBtn", function(event) {
     }).done(function() {
         console.log("success");
     }).fail(function() {
-        console.log("fail"); // czemu wysietla fail ??
+        console.log("fail");
     });
-
-
 });
 
 
-//AddBook
 var button = document.querySelector("#btn");
 button.addEventListener("click", function(event) {
-    // event.preventDefault();
-    //data gathered from FORM
-    // var form = document.querySelector("form"); // alt
-    // var title = form.elements.email.value;
     var objectBook = {
-
         title: document.querySelector("input#title").value,
         author: document.querySelector("input#author").value,
         type: document.querySelector("input#type").value,
         publisher: document.querySelector("input#publisher").value,
         isbn: document.querySelector("input#isbn").value,
     }
-    objectBook = JSON.stringify(objectBook); //dodaje nawiasy !!
-    // event.preventDefault();
+    objectBook = JSON.stringify(objectBook);
+
     $.ajax({
         url: "http://localhost:8080/Spring_MVC_REST/books",
         data: objectBook,
@@ -132,17 +110,7 @@ button.addEventListener("click", function(event) {
         console.log("success");
         GETBooks();
     }).fail(function() {
-        console.log("fail to send object"); // czemu wysietla fail ??
+        console.log("fail to send object");
         GETBooks();
     });
 });
-
-
-// $.get({
-//     url: "https://swapi.co/api/people/4/"
-// }).done(function(data) {
-//     console.log(data);
-//     $(data.films).each(function(i, el) {
-//         console.log(el);
-//     });
-// });
