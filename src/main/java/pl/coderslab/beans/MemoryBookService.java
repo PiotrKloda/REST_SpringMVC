@@ -9,7 +9,7 @@ import pl.coderslab.entities.Book;
 import pl.coderslab.interfaces.IBookService;
 
 @Component
-public class MemoryBookService implements IBookService{
+public class MemoryBookService implements IBookService {
 
 	private List<Book> list;
 
@@ -24,17 +24,14 @@ public class MemoryBookService implements IBookService{
 		list.add(new Book(3, "Ksiazka 3", "t3", "a3", "p3", 43256));
 		list.add(new Book(444, "Ksiazka 4", "t4", "a4", "p4", 283745));
 		list.add(new Book(5, "Ksionkszka 5", "Autor5", "publiszer 5", "typ 5", 432345));
-
 	}
 
-	
-	
-	public List<Book> getList() { // GET ALL BOOKS
+	public List<Book> getList() { 
 		System.out.println("MBS - getList - success");
 		return list;
 	}
 
-	public Book getBook(long id) { // GET BOOK WITH ID
+	public Book getBook(long id) { 
 		Book book = null;
 		for (Book each : this.list) {
 			if (each.getId() == id) {
@@ -45,10 +42,8 @@ public class MemoryBookService implements IBookService{
 		System.out.println("MBS - getBook - success");
 		return book;
 	}
-	
-	
 
-	public void addNewBook(Book book) { // ADD BOOK
+	public void addNewBook(Book book) { 
 		boolean isThere = false;
 		for (Book each : this.list) {
 			if (each.getId() == book.getId()) {
@@ -59,7 +54,7 @@ public class MemoryBookService implements IBookService{
 		}
 		if (isThere == false) {
 
-			ArrayList<Integer> idList = new ArrayList<>(); // set ID (delete when connected to DB
+			ArrayList<Integer> idList = new ArrayList<>();
 			int max = 0;
 			for (Book each : this.list) {
 				idList.add((int) each.getId());
@@ -74,8 +69,6 @@ public class MemoryBookService implements IBookService{
 			System.out.println("MBS - addNewBoko - success");
 		}
 	}
-	
-	
 
 	public void deleteBook(long id) {
 		boolean isSucceded = false;

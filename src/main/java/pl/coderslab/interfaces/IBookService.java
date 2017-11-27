@@ -17,11 +17,4 @@ public interface IBookService {
 	
 	void editBook(Book book, long id);
 	
-	
-	
-	
-	
-	
-	
-	
 }
