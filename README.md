@@ -1,46 +1,17 @@
-# IDCE - Interior Design Cost Estimator
+# REST_SpringMVC
 
 ## Descrption
-Application developed for client whose buisness is intoerior house design. It is a response for a need of tool which will facilitate storing interior design products in database and facilitate calculations cost calculation of new projects.
+Back-end functionality for indexing books in the boostore service, connected with simple front-end client.
 
 ## Aim of the application
-1. Creating database which is easily scaleable and allows future expanging of the items categories and types.
-2. Design CRUD interface enabling database manegement.
-3. Possibility of creating, saving and loading projects listing items selected from database. Project sums up cost of interior design.
+1. Write back-end applcation for bookstore service. 
+2. Connect with simple front-end client
+
 
 ## Functionality
-Dataase schema:
 
-![alt text](https://github.com/PiotrKloda/IDCE_IndoorDesignCostEstimator/blob/master/zResouces/Screenshots/dbSchema.png "db schema")
+Main page - Add book and view the books list: 
+![alt text](https://github.com/PiotrKloda/REST_SpringMVC/blob/master/src/main/resources/screenshots/main.png "main page")
 
-
-Main page - manage database or projects: 
-![alt text](https://github.com/PiotrKloda/IDCE_IndoorDesignCostEstimator/blob/master/zResouces/Screenshots/intro.png "add_project")
-
-Adding Categories:
-![alt text](https://github.com/PiotrKloda/IDCE_IndoorDesignCostEstimator/blob/master/zResouces/Screenshots/categories.png "add_categories")
-
-Adding Attributes to categories:
-![alt text](https://github.com/PiotrKloda/IDCE_IndoorDesignCostEstimator/blob/master/zResouces/Screenshots/Attributes.png "add_attributes")
-
-Adding Products:
-![alt text](https://github.com/PiotrKloda/IDCE_IndoorDesignCostEstimator/blob/master/zResouces/Screenshots/products.png "add_products")
-
-Adding values to specific product attributes: 
-![alt text](https://github.com/PiotrKloda/IDCE_IndoorDesignCostEstimator/blob/master/zResouces/Screenshots/product-attributes.png "add_values")
-
-Manage projects: 
-
-![alt text](https://github.com/PiotrKloda/IDCE_IndoorDesignCostEstimator/blob/master/zResouces/Screenshots/Project.png "add_project")
-
-
-## To Expand:
-1. Logging in
-2. Searching tool
-3. Filters
-4. Protect data input - REGEX
-5. Adding products to project
-6. Add tables - producent, style
-
-
-
+Edit book:
+![alt text](https://github.com/PiotrKloda/REST_SpringMVC/blob/master/src/main/resources/screenshots/edit.png "edit")
